@@ -18,6 +18,7 @@ import static francois.snake.Constants.*;
 
 
 public class SnakeGame extends JPanel implements ActionListener, KeyListener{
+    String pname = JOptionPane.showInputDialog(null, "Enter your name:");
     
     private class Tile {
         int x;
@@ -106,9 +107,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         g.setFont(new Font("Arial", Font.PLAIN, 16));
         if (gameOver) {
             g.setColor(Color.red);
-            g.drawString("Game Over: " + String.valueOf(snakeBody.size()), tileSize - 16, tileSize);
+            g.drawString("Player: " + pname + " ", tileSize - 16, tileSize);
+            g.drawString("Game Over: " + String.valueOf(snakeBody.size()), tileSize - 16, 50);
+            
         } else {
-            g.drawString("Score: " + String.valueOf(snakeBody.size()), tileSize - 16, tileSize);
+            g.drawString("Player: " + pname + " ", tileSize - 16, tileSize);
+            g.drawString("Score: " + String.valueOf(snakeBody.size()), tileSize - 16, 50);
+            
         }
         
     }
